@@ -143,8 +143,7 @@ function verificaResposta(resp){
                 }, 2000)
             }
             else{
-                console.log("COMECE DE NOVO")
-                gameOver()
+                //comando
             }
     }
 }
