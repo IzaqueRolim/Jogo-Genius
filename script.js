@@ -90,16 +90,17 @@ function criaPainel(input){
     document.querySelector(".painel").appendChild(buttonAvancar)
 }
 function atualizarPainel(){
-    textoPainel.innerText = `Bem vindo ${nomeUsuario}!! \n Pontuação: ${pontuacaoGeral}`
+    textoPainel.innerText = `Parabens! \n Pontuação: ${pontuacaoGeral}`
 }
+
 
 function recomecar(btn){
     pontuacaoAtual = 0
     pontuacaoGeral = 0
     arrResposta.splice(0,arrResposta.length)
     arrCoresSorteadas.splice(0,arrCoresSorteadas.length)
+    textoPainel.innerText = `Boa Sorte! \n Pontuação: ${pontuacaoGeral}`
     btn.remove()
-    atualizarPainel()
     ligarCor()
     
 }
@@ -108,6 +109,7 @@ function gameOver(){
 
     let botao = document.createElement("button")
     botao.innerText = "RECOMECAR"
+    textoPainel.innerText = 'Ahh não, tente novamente'
     botao.addEventListener("click",function(){recomecar(botao)})
 
     document.querySelector(".painel").appendChild(botao)
@@ -120,7 +122,6 @@ function verificaResposta(resp){
     arrResposta.push(resp)
     
     if(arrResposta[pontuacaoAtual] == arrCoresSorteadas[pontuacaoAtual]){
-        console.log("Acertou")
         pontuacaoAtual++
         acertou = true
     }
@@ -133,7 +134,6 @@ function verificaResposta(resp){
     if(arrResposta.length== arrCoresSorteadas.length){
 
             if(acertou){
-                console.log("VAMOS PARA A PROXIMO")
                 pontuacaoAtual=0
                 pontuacaoGeral++
                 arrResposta.splice(0,arrResposta.length)
